@@ -1,0 +1,14 @@
+INICIO
+Vector inicial:
+2 
+1 
+4 
+2 
+3 
+Algoritmo seleccionado: sortinterno_mm
+Resultado:
+1 
+2 
+2 
+3 
+4 
