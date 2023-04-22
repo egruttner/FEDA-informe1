@@ -1,4 +1,4 @@
 rm main.o
 make
 
-python3 plot.py selection_mm_results.csv bubble_mm_results.csv quicksort_mm_results.csv sortinterno_mm_results.csv mergesort_mm_results.csv
+python3 plot.py csv/selection_results.csv csv/bubble_results.csv csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv

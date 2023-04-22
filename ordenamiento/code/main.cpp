@@ -24,11 +24,11 @@ int main(int argv, char* argc[]) {
 
   //TIPOS DE PRUEBAS
   switch(atoi(argc[1])){
-    case 5: algoritmo_seleccionado = "sortinterno_mm"; break;
-    case 4: algoritmo_seleccionado = "quicksort_mm"; break;
-    case 3: algoritmo_seleccionado = "selection_mm"; break;
-    case 2: algoritmo_seleccionado = "bubble_mm"; break;
-    default: algoritmo_seleccionado = "mergesort_mm"; break;
+    case 5: algoritmo_seleccionado = "sortinterno"; break;
+    case 4: algoritmo_seleccionado = "quicksort"; break;
+    case 3: algoritmo_seleccionado = "selection"; break;
+    case 2: algoritmo_seleccionado = "bubble"; break;
+    default: algoritmo_seleccionado = "mergesort"; break;
   }
 
   if((argv > 2) && (strcmp(argc[2],"--test") == 0)){
@@ -59,7 +59,7 @@ int main(int argv, char* argc[]) {
   }
 
 
-  outfile_name = algoritmo_seleccionado + "_results.csv";
+  outfile_name = "csv/" + algoritmo_seleccionado + "_results.csv";
   ofstream outfile(outfile_name);
   
   column_names = "n,tiempo[ms]\n";

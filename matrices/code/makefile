@@ -10,7 +10,7 @@ RANGE = 1 2 #distintos algoritmos a probar
 
 INPUT_PREFIX := tests/input
 
-OUTPUT_PREFIX := output
+OUTPUT_PREFIX := output/output
 
 #Le saqué el parámetro -y a diff
 #Según documentación de diff
@@ -23,7 +23,7 @@ all: program
 			./program $$j --test < $(INPUT_PREFIX)$$i.in > $(OUTPUT_PREFIX)$$j$$i.txt; \
 		done; \
 		for i in $(TEST_CASES_NUMBER); do \
-			diff -q -bB $(OUTPUT_PREFIX)$$j$$i.txt tests/output$$i.out; \
+			diff -q -bB $(OUTPUT_PREFIX)$$j$$i.txt output/output$$i.out; \
 		done; \
 		echo "Executing program with $$j"; \
 		./program $$j; \

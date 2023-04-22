@@ -34,7 +34,7 @@ void print_vector(const vector<int> &M){
 }
 
 //SELECTION SORT
-vector<int> selection_mm(const vector<int> &A) {
+vector<int> selection(const vector<int> &A) {
 
   int i, j, min_idx, temp;
   int n=A.size();
@@ -61,7 +61,7 @@ vector<int> selection_mm(const vector<int> &A) {
 }
 
 //BUBBLE SORT
-vector<int> bubble_mm(const vector<int> &A) {
+vector<int> bubble(const vector<int> &A) {
   int i, j, min_idx, temp;
   int n=A.size();
   
@@ -169,7 +169,7 @@ void mergeSort(vector<int>& v, int l, int r)
 
 
 //2.- Encabezado de la llamada
-vector<int> mergesort_mm(const vector<int> &A) {
+vector<int> mergesort_llamada(const vector<int> &A) {
 
   int n = A.size();
   vector<int> C = A;
@@ -205,7 +205,7 @@ void quickSort(vector<int>& arr, int low, int high) {
 }
 
 //2.- Encabezado de la llamada
-vector<int> quicksort_mm(const vector<int> &A) {
+vector<int> quicksort_llamada(const vector<int> &A) {
 
   int n = A.size();
   vector<int> C = A;
@@ -217,7 +217,7 @@ vector<int> quicksort_mm(const vector<int> &A) {
 
 
 //SORTINTERNO
-vector<int> sortinterno_mm(const vector<int> &A) {
+vector<int> sortinterno(const vector<int> &A) {
 
   int n = A.size();
   vector<int> C = A;
@@ -230,11 +230,11 @@ vector<int> sortinterno_mm(const vector<int> &A) {
 //CENTRO DE LLAMADA DE FUNCIONES
 vector<int> vector_ordena(const vector<int> &A, string alg){
   
-  if (alg=="selection_mm") {return selection_mm(A); }
-  if (alg=="bubble_mm") {return bubble_mm(A); }
-  if (alg=="quicksort_mm") {return quicksort_mm(A); }
-  if (alg=="mergesort_mm") {return mergesort_mm(A); }
-  if (alg=="sortinterno_mm") {return sortinterno_mm(A); }
+  if (alg=="selection") {return selection(A); }
+  if (alg=="bubble") {return bubble(A); }
+  if (alg=="quicksort") {return quicksort_llamada(A); }
+  if (alg=="mergesort") {return mergesort_llamada(A); }
+  if (alg=="sortinterno") {return sortinterno(A); }
 
 }
 
