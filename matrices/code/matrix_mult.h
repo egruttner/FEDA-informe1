@@ -35,7 +35,7 @@ void print_matrix(const vector<vector<int> > &M){
 }
 
 //MULTIPLICACION STANDARD
-vector<vector<int> > standard_mm(const vector<vector<int> > &A, const vector<vector<int> > &B) {
+vector<vector<int> > standard(const vector<vector<int> > &A, const vector<vector<int> > &B) {
   int n = A.size();
   int m = A[0].size();
   int k = B[0].size();
@@ -51,7 +51,7 @@ vector<vector<int> > standard_mm(const vector<vector<int> > &A, const vector<vec
 }
 
 //MULTIPLICACION TRANSPUESTA
-vector<vector<int> > transpose_mm(const vector<vector<int> > &A, const vector<vector<int> > &B) {
+vector<vector<int> > transpose(const vector<vector<int> > &A, const vector<vector<int> > &B) {
   int n = A.size();
   int m = A[0].size();
   int k = B[0].size();
@@ -258,38 +258,9 @@ void Strassen_algorithm(vector<vector<int>> &A, vector<vector<int>> &B, int m, i
 //FIN STRASSEN
 
 
-vector<vector<int> > strassen_mm(const vector<vector<int> > &A, const vector<vector<int> > &B) {
-  int n = A.size();
-  int m = A[0].size();
-  int k = B[0].size();
-
-  vector<vector<int> > Bt(k, vector<int>(m, 0));
-
-  for(int i = 0; i < k; i++) 
-    for(int j = 0; j < m; j++) 
-      Bt[i][j] = B[j][i];
-
-  vector<vector<int> > C(n, vector<int>(k, 0));
-
-  for(int i = 0; i < n; i++)
-    for(int j = 0; j < k; j++){
-      int dotProduct = 0;
-      for(int k = 0; k < m; k++)
-        dotProduct += A[i][k] * Bt[j][k];
-      C[i][j] = dotProduct;
-    }
-
-  //FOR EXTRA PARA QUE SE DEMORE UN POCO MAS
-  for(int i = 0; i < n; i++)
-    for(int j = 0; j < k; j++){
-      int dotProduct = 0;
-      for(int k = 0; k < m; k++)
-        dotProduct += A[i][k] * Bt[j][k];
-      C[i][j] = dotProduct;
-    }
-
-
-  return C;
+vector<vector<int> > strassen_llamada(const vector<vector<int> > &A, const vector<vector<int> > &B) 
+{
+  //print_matrix(A);
 }          
 
 
@@ -297,9 +268,9 @@ vector<vector<int> > matrix_multiplication(const vector<vector<int> > &A, const 
   
   //cout << "Algoritmo usado " << alg; 
 
-  if (alg=="strassen_mm") {return strassen_mm(A, B); }
-  if (alg=="transpose_mm") {return transpose_mm(A, B); }
-  if (alg=="standard_mm") {return standard_mm(A, B); }
+  if (alg=="strassen") {return strassen_llamada(A, B); }
+  if (alg=="transpose") {return transpose(A, B); }
+  if (alg=="standard") {return standard(A, B); }
 
 }
 

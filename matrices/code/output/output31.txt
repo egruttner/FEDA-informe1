@@ -1,0 +1,21 @@
+INICIO
+n:2
+m:2
+k:2
+dato:1
+dato:2
+dato:3
+dato:4
+dato:5
+dato:6
+dato:7
+dato:8
+Matriz A:
+1 2 
+3 4 
+Matriz B:
+5 6 
+7 8 
+Resultado:
+19 22 
+43 50 

@@ -16,9 +16,9 @@ int main(int argv, char* argc[]) {
   int n_1;
   int i;
   int num_of_experiments;
+  
   string algoritmo_seleccionado;
   string outfile_name;
-  string column_names;
 
   cout<<"INICIO"<<endl;
 
@@ -61,9 +61,7 @@ int main(int argv, char* argc[]) {
 
   outfile_name = "csv/" + algoritmo_seleccionado + "_results.csv";
   ofstream outfile(outfile_name);
-  
-  column_names = "n,tiempo[ms]\n";
-  outfile << column_names;
+  outfile << "n,tiempo[ms]\n";
 
   //Parámetros de ejecución
   i = 100;//100

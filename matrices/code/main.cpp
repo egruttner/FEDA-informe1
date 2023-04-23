@@ -22,9 +22,9 @@ int main(int argv, char* argc[]) {
 
   //TIPOS DE PRUEBAS
   switch(atoi(argc[1])){
-    case 3: algoritmo_seleccionado = "strassen_mm"; break;
-    case 2: algoritmo_seleccionado = "transpose_mm"; break;
-    default: algoritmo_seleccionado = "standard_mm"; break;
+    case 3: algoritmo_seleccionado = "strassen"; break;
+    case 2: algoritmo_seleccionado = "transpose"; break;
+    default: algoritmo_seleccionado = "standard"; break;
   }
 
   cout<<"INICIO"<<endl;
@@ -65,10 +65,9 @@ int main(int argv, char* argc[]) {
   }
 
   //GENERA SALIDA ARCHIVO CSV PARA GRAFICAR
-  nombre_archivo_salida = algoritmo_seleccionado + "_results.csv";
+  nombre_archivo_salida = "csv/" + algoritmo_seleccionado + "_results.csv";
   ofstream outfile(nombre_archivo_salida);
   outfile <<  "n,tiempo[ms]\n";
-
 
   //Parámetros de ejecución
   i = 100;
@@ -78,10 +77,9 @@ int main(int argv, char* argc[]) {
 
   for(int n = n_1; n <= N; n += i)
   {
-    cout<<n<<endl;
+    //cout<<n<<endl;
     double mm_total_time = 0;
     vector<vector<int> > M_A(n,vector<int>(n,0)), M_B(n,vector<int>(n,0));
-
     for(int j = 0; j < num_experimentos; j++){ 
       long long single_execution_time = execution_time_ms(matrix_multiplication, M_A, M_B, algoritmo_seleccionado);
       mm_total_time += single_execution_time;
