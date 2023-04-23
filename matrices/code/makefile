@@ -6,7 +6,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 TEST_CASES_NUMBER := $(shell seq 1 2) #rango de archivos de input y output
 
-RANGE = 1 2 3#distintos algoritmos a probar
+RANGE = 1 2 3 #distintos algoritmos a probar
 
 INPUT_PREFIX := datasets/input
 
