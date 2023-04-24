@@ -4,7 +4,7 @@ CFLAGS = -std=c++14 -O2
 SRCS = main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
-TEST_CASES_NUMBER := $(shell seq 1 2) #rango de archivos de input y output
+TEST_CASES_NUMBER := $(shell seq 1 5) #rango de archivos de input y output
 
 RANGE = 1 2 3 #distintos algoritmos a probar
 
@@ -19,11 +19,11 @@ OUTPUT_PREFIX := output/output
 all: program
 	for j in $(RANGE); do \
 		for i in $(TEST_CASES_NUMBER); do \
-			echo "./program --test $$j < $(INPUT_PREFIX)$$i.in > $(OUTPUT_PREFIX)$$j$$i.txt"; \
-			./program $$j --test < $(INPUT_PREFIX)$$i.in > $(OUTPUT_PREFIX)$$j$$i.txt; \
+			echo "./program --test $$j < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt"; \
+			./program $$j --test < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt; \
 		done; \
 		for i in $(TEST_CASES_NUMBER); do \
-			diff -q -bB $(OUTPUT_PREFIX)$$j$$i.txt output/output$$i.out; \
+			diff -q -bB $(OUTPUT_PREFIX)$$j$$i.txt output/output$$i.txt; \
 		done; \
 		echo "Executing program with $$j"; \
 		./program $$j; \

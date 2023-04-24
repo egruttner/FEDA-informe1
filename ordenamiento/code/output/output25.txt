@@ -1,4 +1,5 @@
 INICIO
+Algoritmo seleccionado: bubble
 Vector inicial:
 4640 
 6412 
@@ -5000,7 +5001,6 @@ Vector inicial:
 5460 
 8909 
 189 
-Algoritmo seleccionado: bubble
 Resultado:
 1 
 1 

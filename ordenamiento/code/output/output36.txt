@@ -1,4 +1,5 @@
 INICIO
+Algoritmo seleccionado: selection
 Vector inicial:
 9043 
 8816 
@@ -6000,7 +6001,6 @@ Vector inicial:
 4235 
 5582 
 6832 
-Algoritmo seleccionado: selection
 Resultado:
 5 
 9 

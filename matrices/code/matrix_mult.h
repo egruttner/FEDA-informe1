@@ -20,7 +20,7 @@ void read_matrix(vector<vector<int> > &M){
       for(auto &element : row)
       {
         cin>>element;
-        cout<< "dato:" << element <<endl ;
+        //cout<< "dato:" << element <<endl ;
       }
     }
 }

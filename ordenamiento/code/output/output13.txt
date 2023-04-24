@@ -1,4 +1,5 @@
 INICIO
+Algoritmo seleccionado: mergesort
 Vector inicial:
 2320 
 3392 
@@ -3000,7 +3001,6 @@ Vector inicial:
 4201 
 3935 
 3676 
-Algoritmo seleccionado: mergesort
 Resultado:
 1 
 6 

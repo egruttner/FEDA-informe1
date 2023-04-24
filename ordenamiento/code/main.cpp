@@ -65,7 +65,7 @@ int main(int argv, char* argc[]) {
   //Parámetros de ejecución
   i = 100;//100
   n_1 = 1;
-  N = 10000; //1000
+  N = 1000; //1000
   num_of_experiments = 10; //10
 
   for(int n = n_1; n <= N; n += i){

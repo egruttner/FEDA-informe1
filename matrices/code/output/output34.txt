@@ -1,0 +1,16 @@
+INICIO
+n:3
+m:3
+k:3
+Matriz A:
+9 4 5 
+5 2 3 
+9 4 6 
+Matriz B:
+8 5 4 
+3 0 3 
+4 2 6 
+Resultado:
+84 45 0 
+46 25 0 
+0 0 0 

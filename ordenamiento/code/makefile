@@ -37,3 +37,4 @@ program: $(OBJS)
 
 clean:
 	rm -f $(OBJS) program output*
+

@@ -1,4 +1,5 @@
 INICIO
+Algoritmo seleccionado: quicksort
 Vector inicial:
 1668 
 1656 
@@ -7000,7 +7001,6 @@ Vector inicial:
 6994 
 3782 
 4458 
-Algoritmo seleccionado: quicksort
 Resultado:
 4 
 4 
