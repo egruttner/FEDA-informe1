@@ -41,15 +41,12 @@ vector<int> selection(const vector<int> &A) {
   
   vector<int> C = A;
 
-  // One by one move boundary of unsorted subarray
   for (i = 0; i < n-1; i++) {
-      // Find the minimum element in unsorted array
       min_idx = i;
       for (j = i+1; j < n; j++)
           if (C[j] < C[min_idx])
               min_idx = j;
 
-      // Swap the found minimum element with the first element
       temp = C[i];
       C[i] = C[min_idx];
       C[min_idx] = temp;

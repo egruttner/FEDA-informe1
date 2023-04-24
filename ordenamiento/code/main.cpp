@@ -43,10 +43,9 @@ int main(int argv, char* argc[]) {
     read_vector(M_A);
     
     //IMPRIME VECTOR EN OUTPUT
+    cout<<"Algoritmo seleccionado: "<< algoritmo_seleccionado<<endl;
     cout<< "Vector inicial:"<<endl;
     print_vector(M_A);
-
-    cout<<"Algoritmo seleccionado: "<< algoritmo_seleccionado<<endl;
 
     //EJECUTA CON EL ALGORITMO SELCCIONADO
     result = vector_ordena(M_A, algoritmo_seleccionado);
@@ -66,11 +65,11 @@ int main(int argv, char* argc[]) {
   //Parámetros de ejecución
   i = 100;//100
   n_1 = 1;
-  N = 1000; //1000
+  N = 10000; //1000
   num_of_experiments = 10; //10
 
   for(int n = n_1; n <= N; n += i){
-    //cout<<n<<endl;
+    cout<<n<<endl;
     double mm_total_time = 0;
     vector<int> V_A(n);
     for(int j = 0; j < num_of_experiments; j++){ 
