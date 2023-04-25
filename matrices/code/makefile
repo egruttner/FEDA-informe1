@@ -4,7 +4,7 @@ CFLAGS = -std=c++14 -O2
 SRCS = main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
-TEST_CASES_NUMBER := $(shell seq 1 5) #rango de archivos de input y output
+TEST_CASES_NUMBER := $(shell seq 1 10) #rango de archivos de input y output
 
 RANGE = 1 2 3 #distintos algoritmos a probar
 

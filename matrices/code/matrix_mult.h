@@ -80,8 +80,6 @@ vector<vector<int> > transpose(const vector<vector<int> > &A, const vector<vecto
 
 
 //STRASSEN
-
-
 vector<vector<int> > add_matrices(const vector<vector<int> >& A, const vector<vector<int> >&B) {
     int n = A.size();
     vector<vector<int> > C(n, vector<int>(n));

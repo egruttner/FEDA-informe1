@@ -6,8 +6,8 @@
 
 using namespace std;
 
-const int MAX_SIZE = 10; // Máximo tamaño de la matriz
-const int NUM_FILES = 5; // Número de archivos a generar
+const int MAX_SIZE = 100; // Máximo tamaño de la matriz
+const int NUM_FILES = 10; // Número de archivos a generar
 
 int main()
 {
@@ -22,7 +22,7 @@ int main()
         // Inicializar la matriz A con números aleatorios entre 0 y 9
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                A[i][j] = rand() % 10;
+                A[i][j] = rand() % 100;
             }
         }
 
