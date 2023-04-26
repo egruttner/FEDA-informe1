@@ -227,12 +227,11 @@ vector<int> sortinterno(const vector<int> &A) {
 //CENTRO DE LLAMADA DE FUNCIONES
 vector<int> vector_ordena(const vector<int> &A, string alg){
   
+  //if (alg=="bubble") {return bubble(A); }
+
   if (alg=="selection") {return selection(A); }
-  if (alg=="bubble") {return bubble(A); }
   if (alg=="quicksort") {return quicksort_llamada(A); }
   if (alg=="mergesort") {return mergesort_llamada(A); }
   if (alg=="sortinterno") {return sortinterno(A); }
 
 }
-
-

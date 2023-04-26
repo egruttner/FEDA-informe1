@@ -8,7 +8,7 @@
 
 using namespace std;
 
-const int MAX_SIZE = 1000; // Máximo tamaño del arreglo
+int MAX_SIZE = 1000; // Máximo tamaño del arreglo
 const int NUM_FILES = 10; // Número de archivos a generar
 const int RANGO = 10000; // Rango de números
 
@@ -43,7 +43,7 @@ int main()
 {
 
     int opcion;//En esta variable estará almacenado el nombre ingresado.
-    cout << "1-desordenado_repetido 2-desordenado_unico 3-ordenado_repetido" << endl;
+    cout << "1-desordenado_repetido 2-desordenado_unico 3-ordenado_repetido 4-ordenado_reversa" << endl;
     cin >> opcion; //Se lee el nombre
 
     switch(opcion)
@@ -51,7 +51,41 @@ int main()
         case 1: cout<<"desordenado_repetido"<<endl; break;
         case 2: cout<<"desordenado_unico"<<endl; break;
         case 3: cout<<"ordenado_repetido"<<endl; break;
-        case 4: cout<<"ordenado_descendente"<<endl; break;
+        case 4: cout<<"ordenado_reversa"<<endl; break;
+
+        /*
+        
+        --parcialmente ordenados
+        int main() {
+            int nums[] = {5, 8, 2, 10, 1, 7, 4, 6, 3, 9};
+
+            std::partial_sort(nums, nums + 5, nums + 10);
+
+            for (int i = 0; i < 10; ++i) {
+                std::cout << nums[i] << " ";
+            }
+
+            return 0;
+        }
+
+        En este ejemplo, creamos un array de enteros desordenado llamado nums con 10 elementos. Luego, usamos partial_sort para ordenar los primeros 5 elementos del array, dejando el resto en cualquier orden. Finalmente, imprimimos el array para ver el resultado.
+        ** -> acepta diagonal
+
+        --semiordenados
+        int main() {
+            int nums[] = {5, 8, 2, 10, 1, 7, 4, 6, 3, 9};
+
+            std::nth_element(nums, nums + 5, nums + 10);
+
+            for (int i = 0; i < 10; ++i) {
+                std::cout << nums[i] << " ";
+            }
+
+            return 0;
+        }
+
+        En este ejemplo, creamos un array de enteros desordenado llamado nums con 10 elementos. Luego, usamos nth_element para ordenar el elemento en la posición 5 del array, dejando los elementos antes del quinto en cualquier orden y los elementos después del quinto también en cualquier orden. Finalmente, imprimimos el array para ver el resultado.
+        */
 
         default: cout<<"desordenado_repetido"<<endl; break;
     }
@@ -79,6 +113,8 @@ int main()
             }
 
             archivo.close(); // Cerrar el archivo
+
+            MAX_SIZE = MAX_SIZE+1000;
         }
     }
 
@@ -92,14 +128,16 @@ int main()
             shuffleArray(arr, MAX_SIZE);
             string filename = "input" + to_string(i) + ".txt";
             writeArrayToFile(arr, MAX_SIZE, filename);
+
+            MAX_SIZE = MAX_SIZE+1000;
+
         }
 
     }
 
     if (opcion==3) //ordenado_repetido
     {
-        //ORDENADOS
-        for (int f = NUM_FILES; f <= NUM_FILES+10; f++) {
+        for (int f = 1; f <= NUM_FILES; f++) {
             int A[MAX_SIZE];// Vector A
 
             int n = rand() % MAX_SIZE + 2; // Tamaño del vector (aleatorio entre 1 y MAX_SIZE)
@@ -124,8 +162,7 @@ int main()
 
     if (opcion==4) //ordenado_reversa
     {
-        //ORDENADOS
-        for (int f = NUM_FILES; f <= NUM_FILES+10; f++) {
+        for (int f = 1; f <= NUM_FILES; f++) {
             int A[MAX_SIZE];// Vector A
 
             int n = rand() % MAX_SIZE + 2; // Tamaño del vector (aleatorio entre 1 y MAX_SIZE)

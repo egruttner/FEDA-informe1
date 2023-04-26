@@ -24,11 +24,12 @@ int main(int argv, char* argc[]) {
 
   //TIPOS DE PRUEBAS
   switch(atoi(argc[1])){
-    case 5: algoritmo_seleccionado = "sortinterno"; break;
-    case 4: algoritmo_seleccionado = "quicksort"; break;
-    case 3: algoritmo_seleccionado = "selection"; break;
-    case 2: algoritmo_seleccionado = "bubble"; break;
-    default: algoritmo_seleccionado = "mergesort"; break;
+    case 4: algoritmo_seleccionado = "sortinterno"; break;
+    case 3: algoritmo_seleccionado = "quicksort"; break;
+    case 2: algoritmo_seleccionado = "mergesort"; break;
+    case 1: algoritmo_seleccionado = "selection"; break;
+
+    default: algoritmo_seleccionado = ""; break;
   }
 
   if((argv > 2) && (strcmp(argc[2],"--test") == 0)){
@@ -63,9 +64,9 @@ int main(int argv, char* argc[]) {
   outfile << "n,tiempo[ms]\n";
 
   //Parámetros de ejecución
-  i = 100;//100
   n_1 = 1;
-  N = 1000; //1000
+  N = 5000; //1000
+  i = 100;//100 incremento
   num_of_experiments = 10; //10
 
   for(int n = n_1; n <= N; n += i){
