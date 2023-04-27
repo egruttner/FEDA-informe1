@@ -70,14 +70,23 @@ int main(int argv, char* argc[]) {
   outfile <<  "n,tiempo[ms]\n";
 
   //Parámetros de ejecución
-  i = 100;
   n_1 = 1;
-  N = 1000; //1000
+  N = 400; //1000
+  i = 100;
   num_experimentos = 10; //10
+
+
+/*
+//Parámetros de ejecución
+  n_1 = 1;
+  N = 10000; //1000
+  i = 100;//100 incremento
+  numero_de_experimentos = 10; //10
+*/
 
   for(int n = n_1; n <= N; n += i)
   {
-    //cout<<n<<endl;
+    cout<<n<<endl;
     double mm_total_time = 0;
     vector<vector<int> > M_A(n,vector<int>(n,0)), M_B(n,vector<int>(n,0));
     for(int j = 0; j < num_experimentos; j++){ 

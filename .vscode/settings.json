@@ -1,7 +1,10 @@
 {
     "files.associations": {
-        "vector": "cpp",
-        "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "stdexcept": "cpp",
+        "string": "cpp",
+        "filesystem": "cpp",
+        "random": "cpp",
+        "ostream": "cpp"
     }
 }

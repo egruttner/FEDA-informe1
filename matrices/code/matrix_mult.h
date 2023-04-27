@@ -176,7 +176,6 @@ vector<vector<int> > strassen_llamada(const vector<vector<int> > &A, const vecto
 
 vector<vector<int> > matrix_multiplication(const vector<vector<int> > &A, const vector<vector<int> > &B, string alg){
   
-  //cout << "Algoritmo usado " << alg; 
 
   if (alg=="strassen") {return strassen_llamada(A, B); }
   if (alg=="transpose") {return transpose(A, B); }

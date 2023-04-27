@@ -15,7 +15,7 @@ int main(int argv, char* argc[]) {
   int N;
   int n_1;
   int i;
-  int num_of_experiments;
+  int numero_de_experimentos;
   
   string algoritmo_seleccionado;
   string outfile_name;
@@ -65,24 +65,22 @@ int main(int argv, char* argc[]) {
 
   //Parámetros de ejecución
   n_1 = 1;
-  N = 5000; //1000
+  N = 10000; //1000
   i = 100;//100 incremento
-  num_of_experiments = 10; //10
+  numero_de_experimentos = 10; //10
 
   for(int n = n_1; n <= N; n += i){
     cout<<n<<endl;
     double mm_total_time = 0;
     vector<int> V_A(n);
-    for(int j = 0; j < num_of_experiments; j++){ 
+    for(int j = 0; j < numero_de_experimentos; j++){ 
       long long single_execution_time = execution_time_ms(vector_ordena, V_A, algoritmo_seleccionado);
       mm_total_time += single_execution_time;
     }
-    double mm_avg_time = mm_total_time / num_of_experiments;
+    double mm_avg_time = mm_total_time / numero_de_experimentos;
     outfile << n << "," << mm_avg_time <<endl;
   }
   outfile.close(); 
   return 0;
-
-
 
 }
