@@ -23,7 +23,7 @@ int main()
 
     srand(time(NULL)); // Inicializar el generador de números aleatorios con la hora actual
 
-    if (opcion==1) //desordenado_repetido
+    if (opcion==1) //cuadradas
     {
         operacion = "cuadradas";
         //Crea carpeta para guardar datasets
@@ -74,6 +74,70 @@ int main()
 
 
     }
+
+    if (opcion==2) //de diferentes tamaños para algoritmos tradicionales
+    {
+
+        //    si el número de columnas de A es diferente al número de filas de B:
+
+
+
+        operacion = "diferente_tamano";
+        //Crea carpeta para guardar datasets
+        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
+        if (mkdir(folderName.c_str(), 0777) != 0) {
+            cout << "Error al crear la carpeta." << endl;
+        }
+
+
+        for (int f = 1; f <= NUM_FILES; f++) {
+            int A[MAX_SIZE][MAX_SIZE]; // Matriz A
+            int B[MAX_SIZE][MAX_SIZE]; // Matriz A
+
+            int n = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
+
+
+
+            // Inicializar la matriz A con números aleatorios entre RANGO
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    A[i][j] = rand() % RANGO;
+                }
+            }
+
+            // Inicializar la matriz B con números aleatorios entre RANGO
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    B[i][j] = rand() % RANGO;
+                }
+            }
+
+            // Crear un archivo de texto y escribir los datos de la matriz
+            string filename = folderName + "/input" + to_string(f) + ".txt";
+            ofstream archivo(filename);
+            archivo << to_string(n) + " " + to_string(n) + " " + to_string(n)<< endl; // Escribir el tamaño de la matriz en la primera línea del archivo
+            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    archivo << A[i][j] << " ";
+                }
+                archivo << endl;
+            }
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    archivo << B[i][j] << " ";
+                }
+                archivo << endl;
+            }
+
+            archivo.close(); // Cerrar el archivo
+        }
+
+
+    }
+
+
+
 
 
     return 0;
