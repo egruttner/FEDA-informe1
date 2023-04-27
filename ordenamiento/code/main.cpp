@@ -65,9 +65,9 @@ int main(int argv, char* argc[]) {
 
   //Parámetros de ejecución
   n_1 = 1;
-  N = 300; //1000
-  i = 1;//100 incremento
-  numero_de_experimentos = 1; //10
+  N = 10000; //1000
+  i = 100;//100 incremento
+  numero_de_experimentos = 10; //10
 
   for(int n = n_1; n <= N; n += i){
     cout<<n<<endl;

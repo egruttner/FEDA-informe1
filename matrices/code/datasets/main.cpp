@@ -12,20 +12,32 @@ int MAX_SIZE = 100; // Máximo tamaño de la matriz
 int NUM_FILES = 10; // Número de archivos a generar
 int RANGO = 10000; // Rango de números
 
+
+int siguiente_potencia_de_dos(int n) {
+  //Ajusta al número a la siguiente potencia de 2
+  int p = 1;
+  while (p < n) {
+    p <<= 1;
+  }
+  return p;
+}
+
+
+
 int main()
 {
     int opcion; //opción de generación seleccionada por el usuario
     string operacion = "";
     string folderName = "opcion";
 
-    cout << "1-cuadradas 2-diferente_tamano 3-potencia_2" << endl;
+    cout << "1-cuadradas_potencia_dos 2-diferente_tamano 3-potencia_2" << endl;
     cin >> opcion; //Se lee la opción a usar para crear dataset
 
     srand(time(NULL)); // Inicializar el generador de números aleatorios con la hora actual
 
     if (opcion==1) //cuadradas
     {
-        operacion = "cuadradas";
+        operacion = "cuadradas_potencia_dos";
         //Crea carpeta para guardar datasets
         folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
         if (mkdir(folderName.c_str(), 0777) != 0) {
@@ -35,7 +47,10 @@ int main()
             int A[MAX_SIZE][MAX_SIZE]; // Matriz A
             int B[MAX_SIZE][MAX_SIZE]; // Matriz A
 
-            int n = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
+            int r = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
+            int n = siguiente_potencia_de_dos(r); // redondear el número a la potencia de 2 más cercana
+
+            //int n=2;
 
             // Inicializar la matriz A con números aleatorios entre RANGO
             for (int i = 0; i < n; i++) {
@@ -77,11 +92,6 @@ int main()
 
     if (opcion==2) //de diferentes tamaños para algoritmos tradicionales
     {
-
-        //    si el número de columnas de A es diferente al número de filas de B:
-
-
-
         operacion = "diferente_tamano";
         //Crea carpeta para guardar datasets
         folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
