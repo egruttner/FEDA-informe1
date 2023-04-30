@@ -8,20 +8,20 @@
 
 using namespace std;
 
-int MAX_SIZE = 100; // Máximo tamaño de la matriz
+int MAX_SIZE = 512; // Máximo tamaño de la matriz
 int NUM_FILES = 10; // Número de archivos a generar
 int RANGO = 10000; // Rango de números
 
 
-int siguiente_potencia_de_dos(int n) {
-  //Ajusta al número a la siguiente potencia de 2
-  int p = 1;
-  while (p < n) {
-    p <<= 1;
-  }
-  return p;
-}
 
+int random_power_of_2(int max) {
+    int n = rand() % max + 1;
+    int power_of_2 = 1;
+    while (power_of_2 < n) {
+        power_of_2 <<= 1;
+    }
+    return power_of_2;
+}
 
 
 int main()
@@ -30,7 +30,7 @@ int main()
     string operacion = "";
     string folderName = "opcion";
 
-    cout << "1-cuadradas_potencia_dos 2-diferente_tamano 3-potencia_2" << endl;
+    cout << "1-cuadradas_potencia_dos 2-diferente_tamano" << endl;
     cin >> opcion; //Se lee la opción a usar para crear dataset
 
     srand(time(NULL)); // Inicializar el generador de números aleatorios con la hora actual
@@ -47,10 +47,9 @@ int main()
             int A[MAX_SIZE][MAX_SIZE]; // Matriz A
             int B[MAX_SIZE][MAX_SIZE]; // Matriz A
 
-            int r = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
-            int n = siguiente_potencia_de_dos(r); // redondear el número a la potencia de 2 más cercana
+            int n = random_power_of_2(MAX_SIZE);
 
-            //int n=2;
+            cout<< n <<endl;
 
             // Inicializar la matriz A con números aleatorios entre RANGO
             for (int i = 0; i < n; i++) {
@@ -99,25 +98,25 @@ int main()
             cout << "Error al crear la carpeta." << endl;
         }
 
-
         for (int f = 1; f <= NUM_FILES; f++) {
             int A[MAX_SIZE][MAX_SIZE]; // Matriz A
             int B[MAX_SIZE][MAX_SIZE]; // Matriz A
 
             int n = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
-
+            int m = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
+            int k = rand() % MAX_SIZE + 2; // Tamaño de la matriz (aleatorio entre 2 y MAX_SIZE)
 
 
             // Inicializar la matriz A con números aleatorios entre RANGO
             for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+                for (int j = 0; j < m; j++) {
                     A[i][j] = rand() % RANGO;
                 }
             }
 
             // Inicializar la matriz B con números aleatorios entre RANGO
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < k; j++) {
                     B[i][j] = rand() % RANGO;
                 }
             }
@@ -125,7 +124,7 @@ int main()
             // Crear un archivo de texto y escribir los datos de la matriz
             string filename = folderName + "/input" + to_string(f) + ".txt";
             ofstream archivo(filename);
-            archivo << to_string(n) + " " + to_string(n) + " " + to_string(n)<< endl; // Escribir el tamaño de la matriz en la primera línea del archivo
+            archivo << to_string(n) + " " + to_string(m) + " " + to_string(k)<< endl; // Escribir el tamaño de la matriz en la primera línea del archivo
             
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {

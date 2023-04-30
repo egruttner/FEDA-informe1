@@ -9,8 +9,8 @@
 
 using namespace std;
 
-int SIZE = 10000; // Tamaño mínimo de vector, que aumentará en 10000 por cada generación
-int NUM_FILES = 10; // Número de archivos a generar
+int SIZE = 5000; // Tamaño mínimo de vector, que aumentará en 10000 por cada generación
+int NUM_FILES = 20; // Número de archivos a generar
 int RANGO = 10000; // Rango de números
 
 void shuffleArray(int arr[], int size) {
@@ -44,6 +44,9 @@ int main()
             cout << "Error al crear la carpeta." << endl;
         }
         for (int f = 1; f <= NUM_FILES; f++) {
+
+            srand(time(0)); // Inicializar el generador de números aleatorios con la hora actual
+
             int A[SIZE];// Vector A
 
             for (int i = 0; i < SIZE; i++) {
@@ -61,7 +64,7 @@ int main()
 
             archivo.close(); // Cerrar el archivo
 
-            SIZE = SIZE+10000;
+            SIZE = SIZE+5000;
         }
     }
 
@@ -95,7 +98,7 @@ int main()
 
             archivo.close(); // Cerrar el archivo
 
-            SIZE = SIZE+10000;
+            SIZE = SIZE+1000;
         }
 
     }

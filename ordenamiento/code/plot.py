@@ -22,4 +22,6 @@ plt.title('Gráfico comparativo de algoritmos de ordenamiento')
 
 plt.grid()
 
-plt.show()
+#plt.show()
+plt.savefig('test.png')
+

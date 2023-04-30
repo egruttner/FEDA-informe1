@@ -70,15 +70,15 @@ int main(int argv, char* argc[]) {
   outfile <<  "n,tiempo[ms]\n";
 
   //Parámetros de ejecución
-  n_1 = 1;
-  N = 400; //1000
+  n_1 = 0;
+  N = 1000; //1000
   i = 100;
   num_experimentos = 10; //10
 
 
 /*
 //Parámetros de ejecución
-  n_1 = 1;
+  n_1 = 0;
   N = 10000; //1000
   i = 100;//100 incremento
   numero_de_experimentos = 10; //10

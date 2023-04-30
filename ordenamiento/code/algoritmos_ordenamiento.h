@@ -56,26 +56,7 @@ vector<int> selection(const vector<int> &A) {
   return C;
 
 }
-
-//BUBBLE SORT
-vector<int> bubble(const vector<int> &A) {
-  int i, j, min_idx, temp;
-  int n=A.size();
-  
-  vector<int> C = A;
-
-  for(int i=0; i<n-1; i++) {
-      for(int j=0; j<n-i-1; j++) {
-          if(C[j] > C[j+1]) {
-              int temp = C[j];
-              C[j] = C[j+1];
-              C[j+1] = temp;
-          }
-      }
-  }
-
-  return C;
-}          
+        
 
 //MERGESORT
 //0.- Función extra para hacer merge
@@ -178,37 +159,44 @@ vector<int> mergesort_llamada(const vector<int> &A) {
 
 
 //QUICKSORT
-//1.- Para llamar recursivamente
-void quickSort(vector<int>& arr, int low, int high) {
-    if (low < high) {
-        int pivot = arr[high];
-        int i = low - 1;
-        for (int j = low; j <= high - 1; j++) {
-            if (arr[j] <= pivot) {
+
+//
+void swap(vector<int>& vec, int i, int j) {
+    int temp = vec[i];
+    vec[i] = vec[j];
+    vec[j] = temp;
+}
+
+// Función para ordenar un vector utilizando Quicksort
+void quicksort(vector<int>& vec, int inicio, int fin) {
+    if (inicio < fin) {
+        // Escoge el último elemento del vector como pivote
+        int pivote = vec[fin];
+
+        // Particiona el vector alrededor del pivote
+        int i = inicio - 1;
+        for (int j = inicio; j <= fin - 1; j++) {
+            if (vec[j] < pivote) {
                 i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                swap(vec, i, j);
             }
         }
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-        int pi = i + 1;
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
+        swap(vec, i + 1, fin);
 
+        // Recursivamente ordena las dos mitades del vector
+        int p = i + 1;
+        quicksort(vec, inicio, p - 1);
+        quicksort(vec, p + 1, fin);
+    }
 }
+
 
 //2.- Encabezado de la llamada
 vector<int> quicksort_llamada(const vector<int> &A) {
 
   int n = A.size();
   vector<int> C = A;
-
-  quickSort(C,0,n-1); 
-
+  quicksort(C,0,n-1); 
   return C;
 }          
 
@@ -227,7 +215,7 @@ vector<int> sortinterno(const vector<int> &A) {
 //CENTRO DE LLAMADA DE FUNCIONES
 vector<int> vector_ordena(const vector<int> &A, string alg){
   
-  //if (alg=="bubble") {return bubble(A); }
+
 
   if (alg=="selection") {return selection(A); }
   if (alg=="quicksort") {return quicksort_llamada(A); }

@@ -8,25 +8,24 @@ TEST_CASES_NUMBER := $(shell seq 1 10) #rango de archivos de input y output
 
 RANGE = 1 2 3 4 #distintos algoritmos a probar
 
-INPUT_PREFIX := datasets/input
+# 1 SELECTION
+# 2 MERGESORT
+# 3 QUICKSORT
+# 4 SORTSTL
 
-OUTPUT_PREFIX := output/output
+INPUT_PREFIX := datasets/input$(foo)/input
 
-#Le saqué el parámetro -y a diff
-#Según documentación de diff
-#-y, --side-by-side
-#              output in two columns
+OUTPUT_PREFIX := output1/output
+
 all: program
+
 	for j in $(RANGE); do \
-		for i in $(TEST_CASES_NUMBER); do \
-			echo "./program --test $$j < $(INPUT_PREFIX)$$i.in > $(OUTPUT_PREFIX)$$j$$i.txt"; \
-			./program $$j --test < $(INPUT_PREFIX)$$i.in > $(OUTPUT_PREFIX)$$j$$i.txt; \
-		done; \
-		for i in $(TEST_CASES_NUMBER); do \
-			diff -q -bB $(OUTPUT_PREFIX)$$j$$i.txt output/output$$i.out; \
-		done; \
 		echo "Executing program with $$j"; \
 		./program $$j; \
+		for i in $(TEST_CASES_NUMBER); do \
+			echo "./program --test $$j < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt"; \
+			./program $$j --test < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt; \
+		done; \
 	done
 
 program: $(OBJS)

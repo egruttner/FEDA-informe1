@@ -4,19 +4,15 @@
 #include <fstream>
 #include <string.h>
 #include "algoritmos_ordenamiento.h"
+#include <fstream>
+
 using namespace std;
 
 int main(int argv, char* argc[]) {
   srand(time(NULL)); 
 
   int n;
-  int m;
-  int k;
-  int N;
-  int n_1;
-  int i;
   int numero_de_experimentos;
-  
   string algoritmo_seleccionado;
   string outfile_name;
 
@@ -32,7 +28,9 @@ int main(int argv, char* argc[]) {
     default: algoritmo_seleccionado = ""; break;
   }
 
+  //SI ENTRA CON PARÁMETROS, REALIZA EL TEST
   if((argv > 2) && (strcmp(argc[2],"--test") == 0)){
+
     //LEE EL TAMAÑO DEL VECTOR
     cin>>n;
 
@@ -55,32 +53,27 @@ int main(int argv, char* argc[]) {
     //IMPRIME SALIDA EN OUTPUT
     print_vector(result);
 
-    return 0;
-  }
+    outfile_name = "csv/" + algoritmo_seleccionado + "_results.csv";
+    ofstream outfile(outfile_name,std::ios::app);
 
-
-  outfile_name = "csv/" + algoritmo_seleccionado + "_results.csv";
-  ofstream outfile(outfile_name);
-  outfile << "n,tiempo[ms]\n";
-
-  //Parámetros de ejecución
-  n_1 = 1;
-  N = 10000; //1000
-  i = 100;//100 incremento
-  numero_de_experimentos = 10; //10
-
-  for(int n = n_1; n <= N; n += i){
-    cout<<n<<endl;
     double mm_total_time = 0;
-    vector<int> V_A(n);
+    int numero_de_experimentos=1;
     for(int j = 0; j < numero_de_experimentos; j++){ 
-      long long single_execution_time = execution_time_ms(vector_ordena, V_A, algoritmo_seleccionado);
+      long long single_execution_time = execution_time_ms(vector_ordena, M_A, algoritmo_seleccionado);
       mm_total_time += single_execution_time;
     }
     double mm_avg_time = mm_total_time / numero_de_experimentos;
     outfile << n << "," << mm_avg_time <<endl;
+    outfile.close(); 
+
   }
-  outfile.close(); 
-  return 0;
+  else
+  //SINO CREA EL ENCABEZADO PARA GUARDAR EL CSV
+  {
+    outfile_name = "csv/" + algoritmo_seleccionado + "_results.csv";
+    ofstream outfile(outfile_name);
+    outfile << "n,tiempo[ms]\n";
+  }
+
 
 }
