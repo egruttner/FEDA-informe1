@@ -1,37 +1,25 @@
 rm main.o
 
 #REALIZA EXPERIMENTOS CON DIFERENTES DATASETS
-make foo=1
-python3 plot.py csv/selection_results.csv
-python3 plot.py csv/quicksort_results.csv
-python3 plot.py csv/sortinterno_results.csv
-python3 plot.py csv/mergesort_results.csv
-python3 plot_todos.py csv/selection_results.csv csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
-python3 plot_tres.py csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
 
-make foo=2
-python3 plot.py csv/selection_results.csv
-python3 plot.py csv/quicksort_results.csv
-python3 plot.py csv/sortinterno_results.csv
-python3 plot.py csv/mergesort_results.csv
-python3 plot_todos.py csv/selection_results.csv csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
-python3 plot_tres.py csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
 
-make foo=3
-python3 plot.py csv/selection_results.csv
-python3 plot.py csv/quicksort_results.csv
-python3 plot.py csv/sortinterno_results.csv
-python3 plot.py csv/mergesort_results.csv
-python3 plot_todos.py csv/selection_results.csv csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
-python3 plot_tres.py csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
+num_datasets=4
 
-make foo=4
-python3 plot.py csv/selection_results.csv
-python3 plot.py csv/quicksort_results.csv
-python3 plot.py csv/sortinterno_results.csv
-python3 plot.py csv/mergesort_results.csv
-python3 plot_todos.py csv/selection_results.csv csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
-python3 plot_tres.py csv/quicksort_results.csv csv/sortinterno_results.csv csv/mergesort_results.csv
+for (( i=1; i <= $num_datasets; ++i ))
+do
+    make num_dataset=$i
+
+    #python3 plot.py csv/csv$i/selection_results.csv
+    python3 plot.py csv/csv$i/quicksort_results.csv
+    #python3 plot.py csv/csv$i/sortinterno_results.csv
+    #python3 plot.py csv/csv$i/mergesort_results.csv
+    #python3 plot_todos.py csv/csv$i/selection_results.csv csv/csv$i/quicksort_results.csv csv/csv$i/sortinterno_results.csv csv/csv$i/mergesort_results.csv
+    #python3 plot_tres.py csv/csv$i/quicksort_results.csv csv/csv$i/sortinterno_results.csv csv/csv$i/mergesort_results.csv
+
+
+done
+
+
 
 
 rm main.o
