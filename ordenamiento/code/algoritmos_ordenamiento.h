@@ -13,7 +13,7 @@ long long execution_time_ms(Func function, const vector<int> &A, string alg) {
   return std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
 }
 
-//LEER VECTOR
+//LEER VECTOR DESDE INPUT
 void read_vector(vector<int> &M){
   for(auto &row : M)
     {
@@ -214,8 +214,6 @@ vector<int> sortinterno(const vector<int> &A) {
 
 //CENTRO DE LLAMADA DE FUNCIONES
 vector<int> vector_ordena(const vector<int> &A, string alg){
-  
-
 
   if (alg=="selection") {return selection(A); }
   if (alg=="quicksort") {return quicksort_llamada(A); }

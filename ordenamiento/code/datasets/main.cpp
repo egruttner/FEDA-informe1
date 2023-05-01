@@ -9,8 +9,8 @@
 
 using namespace std;
 
-int SIZE = 5000; // Tamaño mínimo de vector, que aumentará en 10000 por cada generación
-int NUM_FILES = 20; // Número de archivos a generar
+int SIZE = 10000; // Tamaño mínimo de vector, que aumentará en 10000 por cada generación
+int NUM_FILES = 10; // Número de archivos a generar
 int RANGO = 10000; // Rango de números
 
 void shuffleArray(int arr[], int size) {
@@ -30,7 +30,7 @@ int main()
     string operacion = "";
     string folderName = "opcion";
 
-    cout << "1-desordenado_repetido 2-desordenado_unico 3-ordenado_repetido 4-ordenado_reversa 5-parcialmente_ordenado 6-semi_ordenado" << endl;
+    cout << "1-desordenado_repetido 2-desordenado_unico 3-ordenado_repetido 4-ordenado_reversa 5-parcialmente_ordenado" << endl;
     cin >> opcion; //Se lee la opción a usar para crear dataset
 
     srand(time(NULL)); // Inicializar el generador de números aleatorios con la hora actual
@@ -39,7 +39,7 @@ int main()
     {
         operacion = "desordenado_repetido";
         //Crea carpeta para guardar datasets
-        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
+        folderName = "input1";
         if (mkdir(folderName.c_str(), 0777) != 0) {
             cout << "Error al crear la carpeta." << endl;
         }
@@ -64,7 +64,7 @@ int main()
 
             archivo.close(); // Cerrar el archivo
 
-            SIZE = SIZE+5000;
+            SIZE = SIZE+10000;
         }
     }
 
@@ -72,7 +72,7 @@ int main()
     {        
         operacion = "desordenado_unico";
         //Crea carpeta para guardar datasets
-        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
+        folderName = "input2";
         if (mkdir(folderName.c_str(), 0777) != 0) {
             cout << "Error al crear la carpeta." << endl;
         }        
@@ -84,7 +84,6 @@ int main()
             }
 
             //Carga arreglo con datos ordenados únicos
-
             shuffleArray(A, SIZE); //Llama a función para desordenar
 
             // Crear un archivo de texto y escribir los datos del vector
@@ -98,7 +97,7 @@ int main()
 
             archivo.close(); // Cerrar el archivo
 
-            SIZE = SIZE+1000;
+            SIZE = SIZE+10000;
         }
 
     }
@@ -107,7 +106,7 @@ int main()
     {
         operacion = "ordenado_repetido";
         //Crea carpeta para guardar datasets
-        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
+        folderName = "input3";
         if (mkdir(folderName.c_str(), 0777) != 0) {
             cout << "Error al crear la carpeta." << endl;
         }        
@@ -129,7 +128,7 @@ int main()
 
             archivo.close(); // Cerrar el archivo
             
-            SIZE=SIZE + 10000;
+            SIZE = SIZE+10000;
         }
 
     }
@@ -138,7 +137,7 @@ int main()
     {
         operacion = "ordenado_reversa"; 
         //Crea carpeta para guardar datasets
-        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
+        folderName = "input4";
         if (mkdir(folderName.c_str(), 0777) != 0) {
             cout << "Error al crear la carpeta." << endl;
         }        
@@ -166,11 +165,11 @@ int main()
 
     }
 
-    if (opcion==5) //ordenado_reversa
+    if (opcion==5) //orden_parcial
     {
         operacion = "parcialmente_ordenado";
         //Crea carpeta para guardar datasets
-        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
+        folderName = "input5";
         if (mkdir(folderName.c_str(), 0777) != 0) {
             cout << "Error al crear la carpeta." << endl;
         }
@@ -198,40 +197,6 @@ int main()
         }
 
     }
-
-    if (opcion==6) //ordenado_reversa
-    {
-        operacion = "semi_ordenado";
-        //Crea carpeta para guardar datasets
-        folderName = operacion + "-" + to_string(NUM_FILES) + "-" + to_string(RANGO);
-        if (mkdir(folderName.c_str(), 0777) != 0) {
-            cout << "Error al crear la carpeta." << endl;
-        }        
-        for (int f = 1; f <= NUM_FILES; f++) {
-            int A[SIZE];// Vector A
-
-            for (int i = 0; i < SIZE; i++) {
-                A[i] = rand() % RANGO;
-            }
-
-            // Crear un archivo de texto y escribir los datos del vector
-            string filename = folderName + "/input" + to_string(f) + ".txt";
-            ofstream archivo(filename);
-            archivo << to_string(SIZE)<< endl; // Escribir el tamaño del vector en la primera línea del archivo
-
-            std::nth_element(A, A + SIZE/2, A + SIZE);
-
-            for (int i = 0; i < SIZE; i++) {
-                archivo << A[i] << " "<<endl;
-            }
-
-            archivo.close(); // Cerrar el archivo
-
-            SIZE = SIZE + 10000;
-        }
-
-    }
-
 
     return 0;
 }

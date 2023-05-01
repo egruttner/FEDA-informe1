@@ -8,9 +8,9 @@ data2 = pd.read_csv(sys.argv[2])
 
 
 label1 = sys.argv[1].split('_')[0]
-label1 = label1[4:]
+label1 = label1[9:]
 label2 = sys.argv[2].split('_')[0]
-label2 = label2[4:]
+label2 = label2[9:]
 
 
 x1 = data1['n'].values

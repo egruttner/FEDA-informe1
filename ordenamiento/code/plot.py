@@ -7,7 +7,7 @@ data1 = pd.read_csv(sys.argv[1])
 
 label1 = sys.argv[1].split('_')[0]
 
-label1 = label1[4:]
+label1 = label1[9:]
 
 x1 = data1['n'].values
 y1 = data1['tiempo[ms]'].values
