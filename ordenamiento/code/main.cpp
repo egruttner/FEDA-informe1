@@ -15,7 +15,7 @@ int main(int argv, char* argc[]) {
   int numero_de_experimentos;
   string dir_csv;
   string algoritmo_seleccionado;
-  string outfile_name;
+  string nombre_archivo_salida;
 
   cout<<"INICIO"<<endl;
 
@@ -63,8 +63,8 @@ int main(int argv, char* argc[]) {
     //IMPRIME SALIDA EN OUTPUT
     print_vector(result);
 
-    outfile_name = dir_csv + algoritmo_seleccionado + "_results.csv";
-    ofstream outfile(outfile_name,std::ios::app);
+    nombre_archivo_salida = dir_csv + algoritmo_seleccionado + "_results.csv";
+    ofstream outfile(nombre_archivo_salida,std::ios::app);
 
     double mm_total_time = 0;
     int numero_de_experimentos=1;
@@ -75,14 +75,17 @@ int main(int argv, char* argc[]) {
     double mm_avg_time = mm_total_time / numero_de_experimentos;
     outfile << n << "," << mm_avg_time <<endl;
     outfile.close(); 
-
+    
+    return 0;
   }
   else
   //SINO CREA EL ENCABEZADO PARA GUARDAR EL CSV
   {
-    outfile_name = dir_csv + algoritmo_seleccionado + "_results.csv";
-    ofstream outfile(outfile_name);
+    nombre_archivo_salida = dir_csv + algoritmo_seleccionado + "_results.csv";
+    ofstream outfile(nombre_archivo_salida);
     outfile << "n,tiempo[ms]\n";
+
+    return 0;
   }
 
 

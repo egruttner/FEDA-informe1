@@ -6,20 +6,24 @@ OBJS = $(SRCS:.cpp=.o)
 
 TEST_CASES_NUMBER := $(shell seq 1 10) #rango de archivos de input y output
 
-RANGE = 1 2 #distintos algoritmos a probar
+RANGE = 1 2  #distintos algoritmos a probar
 
-INPUT_PREFIX := datasets/input
+# 1 STANDARD
+# 2 TRANSPOSE
+# 3 STRASSEN
 
-OUTPUT_PREFIX := output/output
+INPUT_PREFIX := datasets/input$(num_dataset)/input
+
+OUTPUT_PREFIX := output/output$(num_dataset)/output
 
 all: program
 	for j in $(RANGE); do \
+		echo "Executing program with $$j --head $$num_dataset"; \
+		./program $$j --head $$num_dataset; \
 		for i in $(TEST_CASES_NUMBER); do \
-			echo "./program --test $$j < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt"; \
-			./program $$j --test < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt; \
+			echo "./program --test $$j $$num_dataset < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt"; \
+			./program $$j --test $$num_dataset < $(INPUT_PREFIX)$$i.txt > $(OUTPUT_PREFIX)$$j$$i.txt; \
 		done; \
-		echo "Executing program with $$j"; \
-		./program $$j; \
 	done
 
 program: $(OBJS)
