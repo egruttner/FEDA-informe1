@@ -34,6 +34,7 @@ int main(int argv, char* argc[]) {
     case 2: dir_csv = "csv/csv2/"; break;
     case 3: dir_csv = "csv/csv3/"; break;
     case 4: dir_csv = "csv/csv4/"; break;
+    case 5: dir_csv = "csv/csv5/"; break;
 
     default: dir_csv = ""; break;
   }
