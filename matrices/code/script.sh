@@ -10,9 +10,9 @@ do
 
     python3 plot.py csv/csv$i/standard_results.csv
     python3 plot.py csv/csv$i/transpose_results.csv
-    #python3 plot.py csv/csv$i/strassen_results.csv
+    python3 plot.py csv/csv$i/strassen_results.csv
     python3 plot_dos.py csv/csv$i/standard_results.csv csv/csv$i/transpose_results.csv
-    #python3 plot_todos.py csv/csv$i/standard_results.csv csv/csv$i/transpose_results.csv csv/csv$i/strassen_results.csv
+    python3 plot_todos.py csv/csv$i/standard_results.csv csv/csv$i/transpose_results.csv csv/csv$i/strassen_results.csv
 
 done
 

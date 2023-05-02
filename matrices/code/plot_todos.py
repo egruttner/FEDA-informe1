@@ -8,11 +8,11 @@ data2 = pd.read_csv(sys.argv[2])
 data3 = pd.read_csv(sys.argv[3])
 
 label1 = sys.argv[1].split('_')[0]
-label1 = label1[4:]
+label1 = label1[9:]
 label2 = sys.argv[2].split('_')[0]
-label2 = label2[4:]
+label2 = label2[9:]
 label3 = sys.argv[3].split('_')[0]
-label3 = label3[4:]
+label3 = label3[9:]
 
 x1 = data1['n'].values
 y1 = data1['tiempo[ms]'].values
@@ -33,6 +33,8 @@ plt.legend()
 plt.xlabel('n')
 plt.ylabel('tiempo[ms]')
 
-plt.title('Line Plot for Matrix Multiplication')
+plt.title('Multiplicación de matrices')
+
+plt.grid()
 
 plt.show()
