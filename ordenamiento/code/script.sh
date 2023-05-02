@@ -2,9 +2,9 @@ rm main.o
 
 #REALIZA EXPERIMENTOS CON DIFERENTES DATASETS
 
-num_datasets=5
+num_datasets=1
 
-for (( i=5; i <= $num_datasets; ++i ))
+for (( i=1; i <= $num_datasets; ++i ))
 do
     make num_dataset=$i
 

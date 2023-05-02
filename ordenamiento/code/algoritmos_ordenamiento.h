@@ -171,7 +171,7 @@ void swap(vector<int>& vec, int i, int j) {
 void quicksort(vector<int>& vec, int inicio, int fin) {
     if (inicio < fin) {
         // Escoge el último elemento del vector como pivote
-        int pivote = vec[fin];
+        int pivote = vec[(inicio+fin)/2];
 
         // Particiona el vector alrededor del pivote
         int i = inicio - 1;
