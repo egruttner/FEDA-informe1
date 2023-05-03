@@ -107,7 +107,6 @@ void mergeSort(vector<int>& v, int l, int r)
         mergeSort(v, l, m);
         mergeSort(v, m + 1, r);
 
-        // Merge the two subvectors without using merge() function
         int n1 = m - l + 1;
         int n2 = r - m;
 
@@ -160,7 +159,6 @@ vector<int> mergesort_llamada(const vector<int> &A) {
 
 //QUICKSORT
 
-//
 void swap(vector<int>& vec, int i, int j) {
     int temp = vec[i];
     vec[i] = vec[j];
@@ -170,8 +168,9 @@ void swap(vector<int>& vec, int i, int j) {
 // Función para ordenar un vector utilizando Quicksort
 void quicksort(vector<int>& vec, int inicio, int fin) {
     if (inicio < fin) {
+
         // Escoge el último elemento del vector como pivote
-        int pivote = vec[(inicio+fin)/2];
+        int pivote = vec[fin];
 
         // Particiona el vector alrededor del pivote
         int i = inicio - 1;

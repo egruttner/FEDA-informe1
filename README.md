@@ -1,3 +1,4 @@
-# informe n°1
-Informe 1 - Fundamentos de estructuras de datos y algoritmos
+# Repositorio Informes - Fundamentos de Estructuras de Datos y Algoritmos
+
+Informe 1 - Algoritmos de Ordenamiento y Multiplicación de Matrices
 # FEDA-informe1
